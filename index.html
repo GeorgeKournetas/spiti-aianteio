@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Πωλείται κατοικία — Αιάντειο Σαλαμίνας | House for sale — Aianteio, Salamina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Commissioner:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sea:#134a5c;
+    --sea-deep:#0c313e;
+    --paper:#faf8f2;
+    --sand:#efe9dc;
+    --brass:#b3872e;
+    --ink:#22261f;
+    --muted:#6b7168;
+    --line:#dcd7ca;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Commissioner',sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;font-weight:300}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+
+  /* language switching */
+  .l-en{display:none}
+  body.en .l-en{display:revert}
+  body.en .l-el{display:none}
+
+  header{position:absolute;top:0;left:0;right:0;z-index:10;padding:24px 0}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .mark{font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+  .hactions{display:flex;gap:10px;align-items:center}
+  .langbtn{background:transparent;border:1px solid rgba(255,255,255,.5);color:#fff;font-family:'Commissioner',sans-serif;font-size:13px;letter-spacing:.1em;padding:8px 16px;border-radius:999px;cursor:pointer;transition:background .25s}
+  .langbtn:hover{background:rgba(255,255,255,.15)}
+  header a.call{color:#fff;text-decoration:none;font-size:13px;letter-spacing:.08em;border:1px solid rgba(255,255,255,.5);padding:8px 18px;border-radius:999px;transition:background .25s}
+  header a.call:hover{background:rgba(255,255,255,.15)}
+
+  .hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;color:#fff;isolation:isolate}
+  .hero::before{content:"";position:absolute;inset:0;background:url('https://picsum.photos/id/1015/1800/1100') center/cover no-repeat;z-index:-2}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,49,62,.3) 0%,rgba(12,49,62,.08) 40%,rgba(12,49,62,.85) 100%);z-index:-1}
+  .hero .wrap{padding-bottom:64px;width:100%}
+  .eyebrow{font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:#e9dcb8;margin-bottom:14px}
+  h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,6vw,66px);line-height:1.08;max-width:18ch}
+  .hero p.sub{margin-top:16px;font-size:17px;max-width:56ch;color:#eef2ee;font-weight:300}
+  .price{margin-top:26px;display:inline-flex;align-items:baseline;gap:12px;background:rgba(250,248,242,.12);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.25);padding:12px 22px;border-radius:8px}
+  .price strong{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600}
+  .price span{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#e9dcb8}
+
+  .facts{background:var(--sea)}
+  .facts .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+  .fact{padding:26px 18px;text-align:center;border-left:1px solid rgba(255,255,255,.12)}
+  .fact:first-child{border-left:none}
+  .fact b{display:block;font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:#fff}
+  .fact span{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#a9c2c4}
+
+  section{padding:88px 0}
+  .kicker{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--brass);margin-bottom:14px}
+  h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,4vw,42px);line-height:1.15;margin-bottom:22px;color:var(--sea-deep)}
+  h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;margin-bottom:8px;color:var(--sea-deep)}
+
+  .about .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
+  .about p{margin-bottom:18px;max-width:58ch}
+  .about ul{list-style:none;border-top:1px solid var(--line)}
+  .about li{display:flex;justify-content:space-between;gap:16px;padding:13px 2px;border-bottom:1px solid var(--line);font-size:15px}
+  .about li span:first-child{color:var(--muted)}
+  .about li span:last-child{font-weight:500;text-align:right}
+
+  /* three uses */
+  .uses{background:var(--sand)}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:12px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:30px 26px}
+  .card .num{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.2em;color:var(--brass);margin-bottom:12px;text-transform:uppercase}
+  .card p{font-size:15px;color:#3d4239}
+
+  .gallery .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+  .gallery .grid a{position:relative;overflow:hidden;border-radius:6px;display:block;aspect-ratio:4/3;background:var(--line)}
+  .gallery .grid a.tall{grid-row:span 2;aspect-ratio:auto}
+  .gallery .grid img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .gallery .grid a:hover img{transform:scale(1.045)}
+
+  /* location */
+  .loc{background:var(--sea-deep);color:#e8ede8}
+  .loc h2,.loc h3{color:#fff}
+  .loc .kicker{color:#e9dcb8}
+  .loc .intro{max-width:66ch;margin-bottom:44px;color:#c8d4cf;font-size:16.5px}
+  .loc .cols{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .dist{list-style:none;border-top:1px solid rgba(255,255,255,.16)}
+  .dist li{display:flex;justify-content:space-between;gap:16px;padding:12px 2px;border-bottom:1px solid rgba(255,255,255,.16);font-size:15px}
+  .dist li em{font-style:normal;color:#9fb4ad;white-space:nowrap}
+  .dist li b{font-weight:500;color:#fff}
+  .dist li small{display:block;font-size:13px;color:#9fb4ad;font-weight:300}
+  .loc .note{font-size:12.5px;color:#8fa39c;margin-top:14px}
+  .highlight{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:26px 24px;margin-top:26px}
+  .highlight p{font-size:15px;color:#c8d4cf}
+  .mapcard{border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.18);margin-top:26px}
+  .mapcard iframe{width:100%;height:340px;border:0;display:block}
+
+  .contact{background:var(--paper);text-align:center}
+  .contact p{max-width:52ch;margin:0 auto 30px;color:var(--muted)}
+  .btn{display:inline-block;background:var(--brass);color:#fff;text-decoration:none;font-weight:500;letter-spacing:.06em;padding:15px 38px;border-radius:999px;font-size:15px;transition:transform .2s,box-shadow .2s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.25)}
+  .contact .alt{margin-top:18px;font-size:14px;color:var(--muted)}
+  .contact .alt a{color:var(--sea);text-decoration:none;font-weight:500}
+
+  footer{background:var(--sea-deep);color:#7d948d;text-align:center;font-size:12.5px;padding:22px 0 30px;letter-spacing:.06em}
+
+  .lb{position:fixed;inset:0;background:rgba(8,24,30,.94);display:none;align-items:center;justify-content:center;z-index:50;padding:4vh 4vw;cursor:zoom-out}
+  .lb.open{display:flex}
+  .lb img{max-width:100%;max-height:100%;border-radius:6px;box-shadow:0 20px 80px rgba(0,0,0,.6)}
+  .lb .x{position:absolute;top:22px;right:28px;color:#fff;font-size:34px;line-height:1;cursor:pointer;font-weight:300}
+
+  @media (max-width:860px){
+    .about .wrap,.loc .cols{grid-template-columns:1fr;gap:40px}
+    .gallery .grid{grid-template-columns:repeat(2,1fr)}
+    section{padding:64px 0}
+    .hero{min-height:78vh}
+    .mark{display:none}
+  }
+  @media (max-width:520px){
+    .gallery .grid{grid-template-columns:1fr}
+    .gallery .grid a.tall{grid-row:auto}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="mark"><span class="l-el">Αιάντειο · Σαλαμίνα</span><span class="l-en">Aianteio · Salamina</span></div>
+    <div class="hactions">
+      <button class="langbtn" id="langbtn" type="button">EN</button>
+      <a class="call" href="tel:+306900000000"><span class="l-el">Κλείστε επίσκεψη</span><span class="l-en">Book a viewing</span></a>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="l-el">Πωλείται · Άρτης 10, Κάτω Ζαρμπαλά, Αιάντειο Σαλαμίνας</span><span class="l-en">For sale · 10 Artis St., Kato Zarbala, Aianteio, Salamina island</span></div>
+    <h1><span class="l-el">Ζωή δίπλα στη θάλασσα, 15 λεπτά από την Αθήνα</span><span class="l-en">Seaside living, a 15-minute ferry from Athens</span></h1>
+    <p class="sub"><span class="l-el">Κατοικία στο Αιάντειο, το ζωντανό παραθαλάσσιο χωριό της Σαλαμίνας — του πιο κοντινού νησιού στην Αθήνα. Καθαρός αέρας, πευκοδάσος, παραλίες και ήσυχη γειτονιά, με το πορθμείο για τον Πειραιά να λειτουργεί 24 ώρες το 24ωρο.</span><span class="l-en">A home in Aianteio, the lively seaside town of Salamina — the closest island to Athens. Fresh air, pine forest, beaches and a quiet neighbourhood, with a 24/7 ferry link to Piraeus.</span></p>
+    <div class="price"><span><span class="l-el">Τιμή</span><span class="l-en">Price</span></span><strong>— €</strong></div>
+  </div>
+</div>
+
+<div class="facts">
+  <div class="wrap">
+    <div class="fact"><b>— τ.μ.</b><span><span class="l-el">Εμβαδόν</span><span class="l-en">Floor area</span></span></div>
+    <div class="fact"><b>—</b><span><span class="l-el">Υπνοδωμάτια</span><span class="l-en">Bedrooms</span></span></div>
+    <div class="fact"><b>— τ.μ.</b><span><span class="l-el">Οικόπεδο</span><span class="l-en">Plot</span></span></div>
+    <div class="fact"><b>15′</b><span><span class="l-el">Ferry για Πειραιά</span><span class="l-en">Ferry to Piraeus</span></span></div>
+    <div class="fact"><b>24/7</b><span><span class="l-el">Δρομολόγια</span><span class="l-en">Crossings</span></span></div>
+  </div>
+</div>
+
+<section class="about">
+  <div class="wrap">
+    <div>
+      <div class="kicker"><span class="l-el">Το ακίνητο</span><span class="l-en">The property</span></div>
+      <h2><span class="l-el">Ένα σπίτι για κάθε εποχή του χρόνου</span><span class="l-en">A home for every season</span></h2>
+      <p class="l-el">[Εδώ θα μπει η περιγραφή του σπιτιού — δωμάτια, κατάσταση, αυλή, θέα, έτος κατασκευής, ό,τι το κάνει ξεχωριστό.]</p>
+      <p class="l-en">[Property description goes here — rooms, condition, garden, view, year of construction, what makes it special.]</p>
+      <p class="l-el">Το σπίτι βρίσκεται στην περιοχή Κάτω Ζαρμπαλά του Αιαντείου, σε ήσυχη γειτονιά με μόνιμους κατοίκους και εξοχικά, λίγα λεπτά από την παραλία και το κέντρο του χωριού.</p>
+      <p class="l-en">The house sits in the Kato Zarbala area of Aianteio, a quiet neighbourhood of year-round residents and holiday homes, minutes from the beach and the village centre.</p>
+    </div>
+    <div>
+      <div class="kicker"><span class="l-el">Χαρακτηριστικά</span><span class="l-en">Key features</span></div>
+      <ul>
+        <li><span class="l-el">Εμβαδόν</span><span class="l-en">Floor area</span><span>— τ.μ.</span></li>
+        <li><span class="l-el">Οικόπεδο</span><span class="l-en">Plot</span><span>— τ.μ.</span></li>
+        <li><span class="l-el">Υπνοδωμάτια</span><span class="l-en">Bedrooms</span><span>—</span></li>
+        <li><span class="l-el">Μπάνια</span><span class="l-en">Bathrooms</span><span>—</span></li>
+        <li><span class="l-el">Θέρμανση</span><span class="l-en">Heating</span><span>—</span></li>
+        <li><span class="l-el">Έτος κατασκευής</span><span class="l-en">Year built</span><span>—</span></li>
+        <li><span class="l-el">Ενεργειακή κλάση</span><span class="l-en">Energy class</span><span>—</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="uses">
+  <div class="wrap">
+    <div class="kicker"><span class="l-el">Τρεις ζωές σε ένα σπίτι</span><span class="l-en">Three lives in one house</span></div>
+    <h2><span class="l-el">Μόνιμη κατοικία, εξοχικό ή επένδυση</span><span class="l-en">Permanent home, holiday house or investment</span></h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3><span class="l-el">Μόνιμη κατοικία</span><span class="l-en">Permanent home</span></h3>
+        <p class="l-el">Ιδανικό για οικογένεια που εργάζεται στην Αθήνα: το ferry Παλούκια–Πέραμα κάνει μόλις 15 λεπτά, φεύγει κάθε τέταρτο και λειτουργεί όλο το 24ωρο, κάθε μέρα του χρόνου. Ζείτε με καθαρό αέρα, ασφάλεια και θάλασσα — και δουλεύετε στην πόλη.</p>
+        <p class="l-en">Ideal for a family working in Athens: the Paloukia–Perama ferry takes just 15 minutes, departs every quarter hour and runs around the clock, every day of the year. Live with clean air, safety and the sea — and keep your job in the city.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3><span class="l-el">Εξοχική κατοικία</span><span class="l-en">Holiday home</span></h3>
+        <p class="l-el">Το πιο κοντινό νησί στην Αθήνα: χωρίς κρατήσεις πλοίων και ακριβά εισιτήρια, το σπίτι σας στη θάλασσα είναι προσβάσιμο κάθε Παρασκευή απόγευμα — ή κάθε απόγευμα. Παραλίες, ταβέρνες στο κύμα και πευκοδάσος σε απόσταση λίγων λεπτών.</p>
+        <p class="l-en">The closest island to Athens: no ferry bookings, no expensive tickets — your house by the sea is reachable every Friday evening, or any evening. Beaches, waterfront tavernas and pine forest just minutes away.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3><span class="l-el">Επενδυτικό ακίνητο</span><span class="l-en">Investment property</span></h3>
+        <p class="l-el">Οι τιμές στη Σαλαμίνα παραμένουν σημαντικά χαμηλότερες από την υπόλοιπη Αττική, ενώ το νησί δέχεται συνεχώς νέους μόνιμους κατοίκους από την Αθήνα. Δυνατότητα μακροχρόνιας ή βραχυχρόνιας μίσθωσης, με ζήτηση όλο τον χρόνο λόγω απόστασης.</p>
+        <p class="l-en">Property prices on Salamina remain well below the rest of Attica, while the island keeps attracting new year-round residents from Athens. Suitable for long-term or short-term rental, with demand all year thanks to its proximity to the capital.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="wrap">
+    <div class="kicker"><span class="l-el">Φωτογραφίες</span><span class="l-en">Photos</span></div>
+    <h2><span class="l-el">Μια βόλτα στους χώρους</span><span class="l-en">Take a look around</span></h2>
+    <div class="grid">
+      <a href="https://picsum.photos/id/1040/1600/1200" class="tall"><img src="https://picsum.photos/id/1040/800/1100" alt="" loading="lazy"></a>
+      <a href="https://picsum.photos/id/1048/1600/1200"><img src="https://picsum.photos/id/1048/800/600" alt="" loading="lazy"></a>
+      <a href="https://picsum.photos/id/1054/1600/1200"><img src="https://picsum.photos/id/1054/800/600" alt="" loading="lazy"></a>
+      <a href="https://picsum.photos/id/1067/1600/1200"><img src="https://picsum.photos/id/1067/800/600" alt="" loading="lazy"></a>
+      <a href="https://picsum.photos/id/1031/1600/1200"><img src="https://picsum.photos/id/1031/800/600" alt="" loading="lazy"></a>
+      <a href="https://picsum.photos/id/164/1600/1200"><img src="https://picsum.photos/id/164/800/600" alt="" loading="lazy"></a>
+      <a href="https://picsum.photos/id/1084/1600/1200"><img src="https://picsum.photos/id/1084/800/600" alt="" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
+<section class="loc">
+  <div class="wrap">
+    <div class="kicker"><span class="l-el">Η τοποθεσία</span><span class="l-en">The location</span></div>
+    <h2><span class="l-el">Αιάντειο: το νησί που είναι σχεδόν Αθήνα</span><span class="l-en">Aianteio: island life on Athens' doorstep</span></h2>
+    <p class="intro l-el">Το Αιάντειο είναι παραθαλάσσια κωμόπολη περίπου 3.600 κατοίκων στη δυτική ακτή της Σαλαμίνας, με οργανωμένη παραλία μπροστά στον οικισμό, ταβέρνες και καφέ στο κύμα, σχολεία, σούπερ μάρκετ και ό,τι χρειάζεται μια οικογένεια στην καθημερινότητά της. Νότια του χωριού απλώνεται πευκοδάσος που φτάνει ως τα Κανάκια και τη μονή Αγίου Νικολάου — σπάνιο τοπίο για τη δυτική Αττική.</p>
+    <p class="intro l-en">Aianteio is a seaside town of about 3,600 residents on the west coast of Salamina, with an organised beach right in front of the village, waterfront tavernas and cafés, schools, supermarkets and everything a family needs day to day. South of the village stretches a pine forest reaching all the way to Kanakia and the monastery of St. Nicholas — a rare landscape this close to Athens.</p>
+    <div class="cols">
+      <div>
+        <h3><span class="l-el">Καθημερινή ζωή</span><span class="l-en">Everyday life</span></h3>
+        <ul class="dist">
+          <li><span><b><span class="l-el">Παραλία Αιαντείου</span><span class="l-en">Aianteio beach</span></b><small class="l-el">Οργανωμένη, με ξαπλώστρες, καφέ και ταβέρνες</small><small class="l-en">Organised, with sunbeds, cafés and tavernas</small></span><em>~4′ 🚗</em></li>
+          <li><span><b><span class="l-el">Φούρνος — FIGARO</span><span class="l-en">Bakery — FIGARO</span></b><small class="l-el">Λεωφ. Αιαντείου 24, ανοιχτός καθημερινά</small><small class="l-en">24 Aianteiou Ave., open daily</small></span><em>~3′ 🚗</em></li>
+          <li><span><b><span class="l-el">Σούπερ μάρκετ — ΑΒ Βασιλόπουλος</span><span class="l-en">Supermarket — AB Vassilopoulos</span></b><small class="l-el">Πλήρες κατάστημα με φούρνο και κρεοπωλείο</small><small class="l-en">Full store with bakery and butcher</small></span><em>~4′ 🚗</em></li>
+          <li><span><b><span class="l-el">Δημοτικό &amp; Γυμνάσιο Αιαντείου</span><span class="l-en">Primary &amp; junior high school</span></b><small class="l-el">Μέσα στον οικισμό</small><small class="l-en">Within the village</small></span><em>~3′ 🚗</em></li>
+          <li><span><b><span class="l-el">Ταβέρνες στο κύμα</span><span class="l-en">Waterfront tavernas</span></b><small class="l-el">Χοντρό Αλάτι, Χατζής κ.ά. στην παραλιακή</small><small class="l-en">Chontro Alati, Hatzis and more on the seafront</small></span><em>~4′ 🚗</em></li>
+        </ul>
+      </div>
+      <div>
+        <h3><span class="l-el">Συνδέσεις &amp; εξορμήσεις</span><span class="l-en">Connections &amp; escapes</span></h3>
+        <ul class="dist">
+          <li><span><b><span class="l-el">Λιμάνι Παλουκίων</span><span class="l-en">Paloukia port</span></b><small class="l-el">Ferry για Πέραμα: 15′ ταξίδι, αναχώρηση κάθε 15′, όλο το 24ωρο</small><small class="l-en">Ferry to Perama: 15-min crossing, departures every 15 min, 24/7</small></span><em>~15′ 🚗</em></li>
+          <li><span><b><span class="l-el">Πόλη Σαλαμίνας</span><span class="l-en">Salamina town</span></b><small class="l-el">Αγορά, υπηρεσίες, Κέντρο Υγείας</small><small class="l-en">Shops, services, health centre</small></span><em>~10′ 🚗</em></li>
+          <li><span><b><span class="l-el">Πειραιάς</span><span class="l-en">Piraeus</span></b><small class="l-el">Οδήγηση + ferry, από πόρτα σε πόρτα</small><small class="l-en">Drive + ferry, door to door</small></span><em>~50′</em></li>
+          <li><span><b><span class="l-el">Κανάκια</span><span class="l-en">Kanakia</span></b><small class="l-el">Παραλία μέσα στο πευκοδάσος &amp; μυκηναϊκή ακρόπολη</small><small class="l-en">Beach in the pine forest &amp; Mycenaean acropolis</small></span><em>~12′ 🚗</em></li>
+          <li><span><b><span class="l-el">Αίας Κλαμπ (Μαρούδι)</span><span class="l-en">Aias Club beach (Maroudi)</span></b><small class="l-el">Οργανωμένος κολπίσκος με beach bar &amp; καταδύσεις</small><small class="l-en">Organised cove with beach bar &amp; diving club</small></span><em>~10′ 🚗</em></li>
+        </ul>
+        <p class="note"><span class="l-el">Οι χρόνοι είναι ενδεικτικοί, με αυτοκίνητο από το ακίνητο, εκτός αιχμής.</span><span class="l-en">Times are approximate, by car from the property, outside peak hours.</span></p>
+      </div>
+    </div>
+    <div class="highlight">
+      <h3><span class="l-el">Στη γη του ομηρικού Αίαντα</span><span class="l-en">In the land of Homeric Ajax</span></h3>
+      <p class="l-el">Δώδεκα λεπτά από το σπίτι, στα Κανάκια, οι ανασκαφές αποκάλυψαν τη μυκηναϊκή ακρόπολη της Σαλαμίνας — ανακτορικό συγκρότημα 33 δωματίων που οι αρχαιολόγοι ταυτίζουν με την έδρα του Αίαντα του Τελαμώνιου, του ήρωα της Ιλιάδας που έδωσε το όνομά του και στο Αιάντειο. Ελάχιστα σπίτια στον κόσμο έχουν για γείτονα ένα ομηρικό ανάκτορο.</p>
+      <p class="l-en">Twelve minutes from the house, at Kanakia, excavations have revealed the Mycenaean acropolis of Salamina — a 33-room palace complex that archaeologists identify as the seat of Ajax the Great, the hero of Homer's Iliad who also gave Aianteio its name. Few houses in the world have a Homeric palace for a neighbour.</p>
+    </div>
+    <div class="mapcard">
+      <iframe title="Map" src="https://www.google.com/maps?q=%CE%86%CF%81%CF%84%CE%B7%CF%82%2010%2C%20%CE%91%CE%B9%CE%AC%CE%BD%CF%84%CE%B5%CE%B9%CE%BF%20%CE%A3%CE%B1%CE%BB%CE%B1%CE%BC%CE%AF%CE%BD%CE%B1%CF%82&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <div class="kicker"><span class="l-el">Ενδιαφέρεστε;</span><span class="l-en">Interested?</span></div>
+    <h2><span class="l-el">Κλείστε μια επίσκεψη</span><span class="l-en">Book a viewing</span></h2>
+    <p><span class="l-el">Το ακίνητο επισκέπτεται κατόπιν ραντεβού. Καλέστε ή στείλτε μήνυμα και θα σας απαντήσουμε άμεσα — και στα αγγλικά.</span><span class="l-en">Viewings by appointment. Call or send a message and we will get back to you promptly — English spoken.</span></p>
+    <a class="btn" href="tel:+306900000000"><span class="l-el">Καλέστε: 690 000 0000</span><span class="l-en">Call: +30 690 000 0000</span></a>
+    <div class="alt"><span class="l-el">ή στείλτε email στο</span><span class="l-en">or email</span> <a href="mailto:onoma@email.gr">onoma@email.gr</a></div>
+  </div>
+</section>
+
+<footer><span class="l-el">Πωλείται από ιδιώτη · Άρτης 10, Κάτω Ζαρμπαλά, Αιάντειο Σαλαμίνας</span><span class="l-en">For sale by owner · 10 Artis St., Kato Zarbala, Aianteio, Salamina, Greece</span></footer>
+
+<div class="lb" id="lb" role="dialog" aria-label="Photo lightbox">
+  <span class="x" aria-hidden="true">&times;</span>
+  <img id="lbimg" src="" alt="">
+</div>
+
+<script>
+  const btn=document.getElementById('langbtn');
+  btn.addEventListener('click',()=>{
+    document.body.classList.toggle('en');
+    const en=document.body.classList.contains('en');
+    btn.textContent=en?'ΕΛ':'EN';
+    document.documentElement.lang=en?'en':'el';
+  });
+
+  const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg');
+  document.querySelectorAll('.gallery .grid a').forEach(a=>{
+    a.addEventListener('click',e=>{
+      e.preventDefault();
+      lbimg.src=a.getAttribute('href');
+      lb.classList.add('open');
+      document.body.style.overflow='hidden';
+    });
+  });
+  lb.addEventListener('click',()=>{lb.classList.remove('open');lbimg.src='';document.body.style.overflow='';});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contains('open'))lb.click();});
+</script>
+
+</body>
+</html>
