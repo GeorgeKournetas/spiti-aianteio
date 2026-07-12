@@ -39,8 +39,11 @@
   header a.call:hover{background:rgba(255,255,255,.15)}
 
   .hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;color:#fff;isolation:isolate}
-  .hero::before{content:"";position:absolute;inset:0;background:url('hero.jpg') center/cover no-repeat;z-index:-2}
+  .hero::before{content:"";position:absolute;inset:0;background:var(--sea-deep);z-index:-2}
   .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,49,62,.3) 0%,rgba(12,49,62,.08) 40%,rgba(12,49,62,.85) 100%);z-index:-1}
+  .hero-slides{position:absolute;inset:0;z-index:-2}
+  .slide{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat;opacity:0;transition:opacity 1.8s ease}
+  .slide.is-active{opacity:1}
   .hero .wrap{padding-bottom:64px;width:100%}
   .eyebrow{font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:#e9dcb8;margin-bottom:14px}
   h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,6vw,66px);line-height:1.08;max-width:18ch}
@@ -142,6 +145,11 @@
 </header>
 
 <div class="hero">
+  <div class="hero-slides" aria-hidden="true">
+    <div class="slide is-active" style="background-image:url('hero1.jpg')"></div>
+    <div class="slide" style="background-image:url('hero2.jpg')"></div>
+    <div class="slide" style="background-image:url('hero3.jpg')"></div>
+  </div>
   <div class="wrap">
     <div class="eyebrow"><span class="l-el">Μονοκατοικία προς πώληση · Αιάντειο Σαλαμίνας</span><span class="l-en">Detached house for sale · Aianteio, Salamina</span></div>
     <h1><span class="l-el">Ζωή δίπλα στη θάλασσα, ένα βήμα από την Αθήνα</span><span class="l-en">Seaside living, a stone's throw from Athens</span></h1>
@@ -166,12 +174,12 @@
     <div>
       <div class="kicker"><span class="l-el">Το ακίνητο</span><span class="l-en">The property</span></div>
       <h2><span class="l-el">Ένα σπίτι για κάθε εποχή του χρόνου</span><span class="l-en">A home for every season</span></h2>
-      <p class="l-el">Ανεξάρτητη μονοκατοικία 270 τ.μ. σε οικόπεδο 4.610 τ.μ. — σχεδόν 4,6 στρέμματα ιδιωτικής γης με ανοιχτή θέα σε βουνό και θάλασσα. Το σπίτι αναπτύσσεται σε τρία επίπεδα (ισόγειο 116,5 τ.μ., πρώτος όροφος 81,3 τ.μ., υπόγειο 72,3 τ.μ.) και προσφέρει 4 υπνοδωμάτια, 3 μπάνια και ευρύχωρη σαλονοκουζίνα — διαμπερές, γωνιακό και φωτεινό, με δύο περιμετρικές βεράντες 65 τ.μ. η καθεμία.</p>
-      <p class="l-en">A detached house of 270 m² on a 4,610 m² plot — almost half a hectare (4.6 stremmata) of private land, with open views of both mountain and sea. The house is arranged over three levels (ground floor 116.5 m², first floor 81.3 m², basement 72.3 m²) and offers 4 bedrooms, 3 bathrooms and a spacious open-plan living-kitchen — dual-aspect, corner-positioned and bright, with two wrap-around verandas of 65 m² each.</p>
-      <p class="l-el">Κτισμένο με άδεια του 2006 και αποπερατωμένο το 2009, ξεχωρίζει για την ποιότητα κατασκευής: δάπεδα γρανίτη, πάγκοι Corian σε κουζίνα και μπάνια, υδρομασάζ, ενεργειακό τζάκι, αυτόνομη θέρμανση και ψύξη με fan coil, ηλιακό θερμοσίφωνα και boiler. Πλήρης ασφάλεια και άνεση με πόρτα ασφαλείας, συναγερμό, θυροτηλεόραση, σίτες και διπλά τζάμια αλουμινίου. Ενεργειακή κλάση Α — από τις υψηλότερες δυνατές.</p>
-      <p class="l-en">Permitted in 2006 and completed in 2009, it stands out for its build quality: granite floors, Corian worktops in the kitchen and bathrooms, a whirlpool bath, an energy fireplace, independent heating and cooling via fan coils, a solar water heater and a boiler. Full security and comfort with a security door, alarm, video door phone, insect screens and double-glazed aluminium windows. Energy class A — among the highest possible.</p>
-      <p class="l-el">Στον περιβάλλοντα χώρο υπάρχουν κήπος, χτιστή ψησταριά, τρεις κλειστές θέσεις στάθμευσης και υπόγεια αποθήκη 30 τ.μ. Ως ανεξάρτητη μονοκατοικία δεν έχει κοινόχρηστα. Βρίσκεται σε ήσυχη γειτονιά του Αιαντείου με μόνιμους κατοίκους και εξοχικά, λίγα λεπτά από την παραλία και το κέντρο του χωριού· η ακριβής διεύθυνση δίνεται κατά την επικοινωνία.</p>
-      <p class="l-en">Outside there is a garden, a built-in barbecue, three enclosed parking spaces and a 30 m² basement storeroom. As an independent detached house, it has no communal fees. It sits in a quiet Aianteio neighbourhood of year-round residents and holiday homes, minutes from the beach and the village centre; the exact address is shared upon enquiry.</p>
+      <p class="l-el">Πίσω από την πέτρινη μάνδρα, σε οικόπεδο 4,6 στρεμμάτων με πανοραμική θέα σε βουνό και θάλασσα, η κατοικία χτίστηκε το 2009 με προδιαγραφές που σπάνια συναντά κανείς εκτός Αθήνας: θεμελίωση και θερμομόνωση αυξημένων απαιτήσεων, δάπεδα από γρανίτη και μάρμαρο Vratsa μέσα κι έξω, πάγκοι Corian σε κουζίνα και μπάνια, κάγκελα inox. Το κεντρικό σύστημα fan coil καλύπτει ψύξη και θέρμανση, ενώ το ενεργειακό τζάκι διπλής όψεως μοιράζει τη φωτιά σε δύο χώρους.</p>
+      <p class="l-en">Behind the stone boundary wall, on 4,600 m² of land with panoramic mountain-and-sea views, this residence was built in 2009 to a standard rarely found outside Athens: reinforced foundations, high-grade thermal insulation, granite and Vratsa marble flooring inside and out, Corian worktops in the kitchen and bathrooms, stainless-steel railings. A central fan-coil system provides both heating and cooling, while a double-sided energy fireplace warms two rooms at once.</p>
+      <p class="l-el">Στους δύο ορόφους των 198 τ.μ. αναπτύσσονται σαλονοκουζίνα και τέσσερα υπνοδωμάτια — το master με δικό του μπάνιο και dressing room, ενώ ένα από τα υπόλοιπα μπάνια διαθέτει μπανιέρα υδρομασάζ. Το υπόγειο των 72 τ.μ. είναι διαμορφωμένο ως ανεξάρτητο διαμέρισμα με φυσικό φωτισμό και ολοκληρωμένες εγκαταστάσεις (σε ημιτελή κατάσταση) — έτοιμο να γίνει ξενώνας, studio ή χώρος φιλοξενίας — και συμπληρώνεται από βοηθητικό χώρο 30 τ.μ.</p>
+      <p class="l-en">The two main floors (198 m²) hold an open-plan living room and four bedrooms — the master with an en-suite bathroom and dressing room, and one further bathroom featuring a hydromassage tub. The 72 m² lower level is laid out as a self-contained apartment with natural light and completed installations (currently unfinished) — ready to become a guest flat or studio — complemented by a 30 m² utility area.</p>
+      <p class="l-el">Έξω, το κτήμα είναι προετοιμασμένο για τη ζωή που του αξίζει: ηλεκτρολογική υποδομή για πισίνα και φωτισμό περιβάλλοντος χώρου, τηλεχειριζόμενος φωτισμός στη διαδρομή προς το πάρκινγκ, χτιστό BBQ, τρεις κλειστές θέσεις στάθμευσης. Χωρίς κοινόχρηστα, τέσσερα λεπτά από τη θάλασσα.</p>
+      <p class="l-en">Outside, the estate is prepared for the life it deserves: electrical infrastructure already in place for a swimming pool and garden lighting, remote-controlled lighting along the driveway, a built-in BBQ, and three enclosed parking spaces. No shared building fees, four minutes from the sea.</p>
     </div>
     <div>
       <div class="kicker"><span class="l-el">Χαρακτηριστικά</span><span class="l-en">Key features</span></div>
@@ -180,13 +188,16 @@
         <li><span class="l-el">Εμβαδόν κτίσματος</span><span class="l-en">Floor area</span><span>270 τ.μ.</span></li>
         <li><span class="l-el">Οικόπεδο</span><span class="l-en">Plot</span><span>4.610 τ.μ.</span></li>
         <li><span class="l-el">Επίπεδα</span><span class="l-en">Levels</span><span><span class="l-el">3 (ισόγειο 116,5 · 1ος 81,3 · υπόγειο 72,3 τ.μ.)</span><span class="l-en">3 (ground 116.5 · first 81.3 · basement 72.3 m²)</span></span></li>
+        <li><span class="l-el">Υπόγειο</span><span class="l-en">Lower level</span><span><span class="l-el">72 τ.μ., ανεξάρτητο διαμέρισμα (ημιτελές)</span><span class="l-en">72 m², self-contained apartment (unfinished)</span></span></li>
         <li><span class="l-el">Υπνοδωμάτια</span><span class="l-en">Bedrooms</span><span>4</span></li>
-        <li><span class="l-el">Μπάνια</span><span class="l-en">Bathrooms</span><span>3</span></li>
+        <li><span class="l-el">Μπάνια</span><span class="l-en">Bathrooms</span><span><span class="l-el">3 (1 master en-suite, 1 με υδρομασάζ)</span><span class="l-en">3 (1 master en-suite, 1 with hydromassage)</span></span></li>
         <li><span class="l-el">Βεράντες</span><span class="l-en">Verandas</span><span><span class="l-el">2 περιμετρικές × 65 τ.μ.</span><span class="l-en">2 wrap-around × 65 m²</span></span></li>
         <li><span class="l-el">Θέα</span><span class="l-en">View</span><span><span class="l-el">Βουνό &amp; θάλασσα</span><span class="l-en">Mountain &amp; sea</span></span></li>
         <li><span class="l-el">Θέρμανση / Ψύξη</span><span class="l-en">Heating / Cooling</span><span><span class="l-el">Αυτόνομη, fan coil + ενεργειακό τζάκι</span><span class="l-en">Independent, fan coil + energy fireplace</span></span></li>
+        <li><span class="l-el">Δάπεδα</span><span class="l-en">Flooring</span><span><span class="l-el">Γρανίτης &amp; μάρμαρο Vratsa</span><span class="l-en">Granite &amp; Vratsa marble</span></span></li>
         <li><span class="l-el">Στάθμευση</span><span class="l-en">Parking</span><span><span class="l-el">3 κλειστές θέσεις</span><span class="l-en">3 enclosed spaces</span></span></li>
         <li><span class="l-el">Αποθήκη</span><span class="l-en">Storage</span><span><span class="l-el">Υπόγεια 30 τ.μ.</span><span class="l-en">Basement 30 m²</span></span></li>
+        <li><span class="l-el">Πρόβλεψη πισίνας</span><span class="l-en">Pool provision</span><span><span class="l-el">Ναι</span><span class="l-en">Yes</span></span></li>
         <li><span class="l-el">Άδεια / Αποπεράτωση</span><span class="l-en">Permit / Completion</span><span>2006 / 2009</span></li>
         <li><span class="l-el">Ενεργειακή κλάση</span><span class="l-en">Energy class</span><span>Α</span></li>
         <li><span class="l-el">Κοινόχρηστα</span><span class="l-en">Communal fees</span><span><span class="l-el">Χωρίς</span><span class="l-en">None</span></span></li>
@@ -322,6 +333,16 @@
   });
   lb.addEventListener('click',()=>{lb.classList.remove('open');lbimg.src='';document.body.style.overflow='';});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contains('open'))lb.click();});
+
+  const heroSlides=document.querySelectorAll('.hero-slides .slide');
+  if(heroSlides.length>1 && !window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+    let hi=0;
+    setInterval(()=>{
+      heroSlides[hi].classList.remove('is-active');
+      hi=(hi+1)%heroSlides.length;
+      heroSlides[hi].classList.add('is-active');
+    },3000);
+  }
 </script>
 
 </body>
